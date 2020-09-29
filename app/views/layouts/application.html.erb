@@ -1,15 +1,74 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DmmApplication3</title>
+    <title>Bookers</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script src="https://kit.fontawesome.com/fff3ba2388.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <header class="container-fluid">
+    <div class="row">
+      <div class="col-xs-2">
+        <h2 class="header-title">Bookers</h2>
+      </div>
+      <% if user_signed_in? %>
+        <nav class="col-xs-4 col-xs-offset-6">
+          <ul class="header-lists">
+            <li class="header-list-item">
+              <i class="fas fa-home"></i>
+              <%= link_to "Home", root_path, class:"decoration-none" %>
+            </li>
+            <li class="header-list-item">
+              <i class="fas fa-user"></i>
+              <%= link_to "Users", about_path, class:"decoration-none" %>
+            </li>
+            <li class="header-list-item">
+              <i class="fas fa-book"></i>
+              <%= link_to "Books", root_path, class:"decoration-none" %>
+            </li>
+            <li class="header-list-item">
+              <i class="fas fa-sign-out-alt"></i>
+              <%= link_to "logout", destroy_user_session_path, method: :delete, class:"decoration-none" %>
+            </li>
+          </ul>
+        </nav>
+      <% else %>
+        <nav class="col-xs-4 col-xs-offset-6">
+          <ul class="header-lists">
+            <li class="header-list-item">
+              <i class="fas fa-home"></i>
+              <%= link_to "Home", root_path, class:"decoration-none" %>
+            </li>
+            <li class="header-list-item">
+              <i class="fas fa-link"></i>
+              <%= link_to "About", about_path, class:"decoration-none" %>
+            </li>
+            <li class="header-list-item">
+              <i class="fas fa-edit"></i>
+              <%= link_to "sign up", new_user_registration_path, class:"decoration-none" %>
+            </li>
+            <li class="header-list-item">
+              <i class="fas fa-sign-in-alt"></i>
+              <%= link_to "sign in", new_user_session_path, class:"decoration-none" %>
+            </li>
+          </ul>
+        </nav>
+      <% end %>
+    </div>
+  </header>
+
   <body>
     <%= yield %>
   </body>
+
+  <footer>
+    <div class="container">
+      <div class="col-xs-2 col-xs-offset-9">
+        <p>CopyRight Infratop.inc</p>
+      </div>
+    </div>
+  </footer>
 </html>
