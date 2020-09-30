@@ -6,9 +6,7 @@
 				<table class="table">
 					<thead>
 						<tr class="">
-							<td class="user-image">
-								 <%= attachment_image_tag current_user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size:'100x100' %>
-							</td>
+							<td class="user-image"></td>
 							<td></td>
 						</tr>
 					</thead>
@@ -23,9 +21,6 @@
 						</tr>
 					</tbody>
 				</table>
-				<%= link_to edit_user_path(current_user.id), class:"btn btn-default btn-block" do %>
-					    <i class="fas fa-wrench"></i>
-					<% end %>
 			</section>
 			<section class="">
 				<h2>New book</h2>
