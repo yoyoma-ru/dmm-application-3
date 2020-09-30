@@ -27,7 +27,7 @@
             </li>
             <li class="header-list-item">
               <i class="fas fa-book"></i>
-              <%= link_to "Books", root_path, class:"decoration-none" %>
+              <%= link_to "Books", books_path, class:"decoration-none" %>
             </li>
             <li class="header-list-item">
               <i class="fas fa-sign-out-alt"></i>
@@ -59,6 +59,8 @@
       <% end %>
     </div>
   </header>
+
+  <p id="notice"><%= notice %></p>
 
   <body>
     <%= yield %>
