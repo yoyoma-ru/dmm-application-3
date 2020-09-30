@@ -56,7 +56,7 @@
 					    	<td class=""><%= @detail_book.body %></td>
 					    	<% if @detail_book.user == current_user %>
 					    	    <td class=""><%= link_to "edit", edit_book_path(@detail_book), class:"btn btn-success" %></td>
-					    	    <td class=""><%= link_to "destroy", book_path(@detail_book) , method: :delete, class:"btn btn-danger" %></td>
+					    	    <td class=""><%= link_to "destroy", book_path(@detail_book) , method: :delete, class:"btn btn-danger", "data-confirm"=>"本当に削除しますか？" %></td>
 					    	<% end %>
 						</tr>
 				</tbody>
