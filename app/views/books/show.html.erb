@@ -1,0 +1,66 @@
+<div class="container-fuluid">
+	<div class="row">
+		<div class="col-xs-3">
+			<section class="">
+				<h2>User info</h2>
+				<table class="table">
+					<thead>
+						<tr class="">
+							<td class="user-image"></td>
+							<td></td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="">
+							<td class="">name</td>
+							<td class=""><%= current_user.name %></td>
+						</tr>
+						<tr class="">
+							<td class="">introduction</td>
+							<td class=""><%= current_user.introduction %></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section class="">
+				<h2>New book</h2>
+				<%= form_for(@book) do |f| %>
+				    <div class="form-group">
+				    	<%= f.label :title, "Title" %>
+				    	<p><%= f.text_field :title, class:"col-xs-12" %><p>
+				    </div>
+				    <br>
+				    <div class="form-group">
+				    	<%= f.label :body, "Opinion" %>
+				    	<p><%= f.text_area :body, class:"col-xs-12" %></p>
+				    </div>
+				    <%= f.submit "Create book", class:"btn btn-primary btn-block" %>
+				<% end %>
+			</section>
+		</div>
+		<section class="col-xs-9">
+			<h2>Books</h2>
+			<table class="table">
+				<thead>
+				    <tr class="">
+					    <th class=""></th>
+					    <th class="">Title</th>
+					    <th class="">Opinion</th>
+					    <th class="col-2">
+				    </tr>
+				</thead>
+				<tbody>
+				    	<tr class="">
+					    	<td class=""> user.profile_image </td>
+					    	<td class=""><%= @detail_book.title %></td>
+					    	<td class=""><%= @detail_book.body %></td>
+					    	<% if @detail_book.user == current_user %>
+					    	    <td class=""><%= link_to "edit", edit_book_path(@detail_book), class:"btn btn-success" %></td>
+					    	    <td class=""><%= link_to "destroy", book_path(@detail_book) , method: :delete, class:"btn btn-danger" %></td>
+					    	<% end %>
+						</tr>
+				</tbody>
+			</table>
+		</section>
+	</div>
+</div>
