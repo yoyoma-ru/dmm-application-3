@@ -31,6 +31,22 @@
 	color: #fff;
 }
 
+#error_explanation{
+    margin: 5px 10px 0 10px;
+	border: solid 1px red;
+	.error_count{
+	    color: #fff;
+	    background-color: red;
+	    font-size: 15px;
+	    padding-left: 5px;
+	}
+	.error_message{
+	    color: red;
+	    padding-left: 10px;
+	    list-style: none;
+	}
+}
+
 header{
 	height: 50px;
 	background-color: #000;
